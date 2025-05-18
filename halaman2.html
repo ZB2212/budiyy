@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ucapan Ultah</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h2 class="animated-text">🎉 Happy Birthday to You! 🎉</h2>
+    <p>Semoga harimu penuh tawa, cinta, dan harapan yang indah ✨</p>
+    <button onclick="window.location.href='halaman3.html'">Lanjut ➡️</button>
+    <button id="toggleMusicBtn">🎵 Pause Musik</button>
+  </div>
+
+  <div class="balloons">
+    <div class="balloon red"></div>
+    <div class="balloon blue"></div>
+    <div class="balloon green"></div>
+  </div>
+
+  <script>
+    let audio;
+
+    window.onload = () => {
+      if(localStorage.getItem('musicPlaying') === 'true'){
+        audio = new Audio('musik/WhatsApp Audio 2025-05-18 at 19.59.54.mp4');
+        audio.loop = true;
+        audio.play().catch(() => {
+          // Kalau autoplay diblok browser, tombol toggle tetap berfungsi
+        });
+      }
+
+      const toggleBtn = document.getElementById('toggleMusicBtn');
+      toggleBtn.addEventListener('click', () => {
+        if (!audio) {
+          audio = new Audio('musik/WhatsApp Audio 2025-05-18 at 19.59.54.mp4');
+          audio.loop = true;
+          audio.play();
+          localStorage.setItem('musicPlaying', 'true');
+          toggleBtn.textContent = '🎵 Pause Musik';
+          return;
+        }
+
+        if(audio.paused){
+          audio.play();
+          localStorage.setItem('musicPlaying', 'true');
+          toggleBtn.textContent = '🎵 Pause Musik';
+        } else {
+          audio.pause();
+          localStorage.setItem('musicPlaying', 'false');
+          toggleBtn.textContent = '🎵 Mainkan Musik';
+        }
+      });
+    }
+  </script>
+</body>
+</html>

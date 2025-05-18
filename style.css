@@ -1,0 +1,121 @@
+/* Reset & Tampilan Umum */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(145deg, #ffe6f0, #d0f0ff);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.container {
+  background: #ffffffcc;
+  backdrop-filter: blur(10px);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  text-align: center;
+  max-width: 90%;
+  width: 360px;
+  z-index: 2;
+}
+
+h1, h2 {
+  color: #ff4d88;
+  margin-bottom: 15px;
+}
+
+p {
+  font-size: 1rem;
+  color: #444;
+}
+
+button {
+  background: #ff6f91;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  margin-top: 20px;
+  font-size: 1rem;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+button:hover {
+  background: #e64c75;
+  transform: scale(1.05);
+}
+
+/* Gambar */
+.featured-image {
+  width: 100%;
+  max-width: 280px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Animasi Teks */
+.animated-text {
+  animation: fadeInUp 1.5s ease-out;
+}
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Balon */
+.balloons {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.balloon {
+  width: 35px;
+  height: 45px;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 0;
+  animation: floatUp 6s infinite ease-in-out;
+}
+
+.balloon::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  width: 2px;
+  height: 20px;
+  background: #333;
+}
+
+.balloon.red { background: #ff4d4d; left: 20%; animation-delay: 0s; }
+.balloon.blue { background: #4da6ff; left: 50%; animation-delay: 2s; }
+.balloon.green { background: #66cc66; left: 80%; animation-delay: 4s; }
+
+@keyframes floatUp {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-120vh); opacity: 0; }
+}
+
+/* Responsif */
+@media screen and (max-width: 480px) {
+  .container {
+    width: 90%;
+    padding: 20px;
+  }
+
+  button {
+    width: 100%;
+  }
+}

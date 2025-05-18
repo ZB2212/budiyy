@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎁 Hadiah Terakhir</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h2 class="animated-text">💖 Kamu Sangat Berarti 💖</h2>
+    <p>Terima kasih telah menjadi pribadi yang luar biasa. Tetaplah bersinar! 🌟</p>
+    <P>Mungkin ini buakan sebuah kado yang baguss dari orang lain tapi ini spesial for you 💖 </P>
+    <button onclick="window.location.href='index.html'">Ulangi Lagi 🔁</button>
+    <button onclick="toggleMusic()">🎵 Play/Pause Musik</button>
+  </div>
+
+  <!-- JavaScript Musik -->
+  <script>
+    let audio;
+
+    window.onload = function () {
+      if (localStorage.getItem('musicPlaying') === 'true') {
+        audio = new Audio('musik/WhatsApp Audio 2025-05-18 at 19.59.54.mp4');
+        audio.loop = true;
+        audio.play();
+      }
+    };
+
+    function toggleMusic() {
+      if (!audio) {
+        audio = new Audio('musik/WhatsApp Audio 2025-05-18 at 19.59.54.mp4');
+        audio.loop = true;
+        audio.play();
+        localStorage.setItem('musicPlaying', 'true');
+      } else if (audio.paused) {
+        audio.play();
+        localStorage.setItem('musicPlaying', 'true');
+      } else {
+        audio.pause();
+        localStorage.setItem('musicPlaying', 'false');
+      }
+    }
+  </script>
+</body>
+</html>
